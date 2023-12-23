@@ -16,7 +16,7 @@ task build
 
 
 
-tasks.zip('packageDistribution', Zip) {
+task.zip('packageDistribution', Zip) {
     archiveFileName = "trainSchedule.zip"
     destinationDirectory = layout.buildDirectory.dir('dist')
 
