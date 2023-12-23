@@ -16,7 +16,7 @@ task build
 
 
 
-task.zip('packageDistribution', Zip) {
+tasks.register('packageDistribution', Zip) {
     archiveFileName = "trainSchedule.zip"
     destinationDirectory = layout.buildDirectory.dir('dist')
 
@@ -35,7 +35,7 @@ task.zip('packageDistribution', Zip) {
 
 //declare task dependencies
 build.dependsOn zip
-zip.dependsOn npm_build
+register.dependsOn npm_build
 npm_build.dependsOn npm_test
 npm_test.dependsOn npmInstall
 npm_build.dependsOn npmInstall
