@@ -13,19 +13,25 @@ node {
 task build
 
 //declare a task to create a zip of the app
-task zip(type: Zip) {
-	from ('.') {
-		include "*"
+
+
+
+tasks.zip('packageDistribution', Zip) {
+    archiveFileName = "my-distribution.zip"trainSchedule
+    destinationDirectory = layout.buildDirectory.dir('dist')
+
+    from layout.buildDirectory.dir("."){
+	    include "*"
 		include "bin/**"
 		include "data/**"
 		include "node_modules/**"
 		include "public/**"
 		include "routes/**"
 		include "views/**"
-	}
-	destinationDir(file("dist/"))
-	baseName "trainSchedule"
+    }
 }
+
+
 
 //declare task dependencies
 build.dependsOn zip
