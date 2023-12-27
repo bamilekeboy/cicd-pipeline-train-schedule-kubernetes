@@ -20,15 +20,7 @@ tasks.register('zip', Zip) {
     archiveFileName = "trainSchedule.zip"
     destinationDirectory = layout.buildDirectory.dir('dist')
 
-    from layout.buildDirectory.dir("."){
-	    include "*"
-		include "bin/**"
-		include "data/**"
-		include "node_modules/**"
-		include "public/**"
-		include "routes/**"
-		include "views/**"
-    }
+    from layout.buildDirectory.dir(".")
 }
 
 
